@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myntara Clone</title>
+  <style>
+    /* Styles for the filter buttons */
+    .filter-button {
+      margin-right: 10px;
+    }
+
+    /* Styles for the item container */
+    .item-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Styles for the items */
+    .item {
+      width: 200px;
+      height: 150px;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+    }
+
+    /* Styles for the different categories */
+    .category1 {
+      background-color: #ffc107;
+    }
+
+    .category2 {
+      background-color: #17a2b8;
+    }
+
+    .category3 {
+      background-color: #28a745;
+    }
+
+    /* Styles for hiding items */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Myntara Clone</h1>
+
+  <div>
+    <!-- Filter buttons -->
+    <button class="filter-button" onclick="filterItems('all')">All</button>
+    <button class="filter-button" onclick="filterItems('category1')">Category 1</button>
+    <button class="filter-button" onclick="filterItems('category2')">Category 2</button>
+    <button class="filter-button" onclick="filterItems('category3')">Category 3</button>
+  </div>
+
+  <div class="item-container">
+    <!-- Item list -->
+    <div class="item category1">Item 1 (Category 1)</div>
+    <div class="item category2">Item 2 (Category 2)</div>
+    <div class="item category1">Item 3 (Category 1)</div>
+    <div class="item category3">Item 4 (Category 3)</div>
+    <div class="item category2">Item 5 (Category 2)</div>
+    <div class="item category3">Item 6 (Category 3)</div>
+  </div>
+
+  <script>
+    function filterItems(category) {
+      // Get all item elements
+      var items = document.getElementsByClassName('item');
+
+      // Show or hide items based on the selected category
+      if (category === 'all') {
+        for (var i = 0; i < items.length; i++) {
+          items[i].classList.remove('hidden');
+        }
+      } else {
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].classList.contains(category)) {
+            items[i].classList.remove('hidden');
+          } else {
+            items[i].classList.add('hidden');
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
